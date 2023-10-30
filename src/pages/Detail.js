@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { productsActionDetail } from "../redux/actions/products";
 import { CgMathMinus, CgMathPlus } from "react-icons/cg";
+import { productsCard } from "../redux/actions/card";
 const Detail = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -27,6 +28,12 @@ const Detail = () => {
       setCount(count - 1);
     }
   };
+
+  const addCard = () => {
+    dispatch(productsCard(id, count));
+    dispatch({ type: "DRAWER", payload: true });
+  };
+  console.log(count, "cc");
 
   return (
     <div className="w-full flex items-center justify-center space-x-5 px-5">
@@ -53,7 +60,9 @@ const Detail = () => {
               size={30}
             />
           </div>
-          <button className="p-3 w-full bg-indigo-600 text-center rounded-lg text-white text-lg">
+          <button
+            onClick={addCard}
+            className="p-3 w-full bg-indigo-600 text-center rounded-lg text-white text-lg">
             Sepete Ekle
           </button>
         </div>
