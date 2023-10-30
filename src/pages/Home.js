@@ -10,6 +10,7 @@ const Home = () => {
   useEffect(() => {
     dispatch(productsAction());
   }, [dispatch]);
+  console.log(products, "products");
 
   return (
     <div className="flex">

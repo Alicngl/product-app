@@ -1,8 +1,6 @@
 import { Button, Col, Image } from "antd";
-import { useParams } from "react-router-dom";
 
 function CardPage({ prd }) {
-  const {id} = useParams()
   return (
     <div>
       <Col
