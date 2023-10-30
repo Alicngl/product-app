@@ -14,7 +14,7 @@ function CardPage({ prd }) {
             onClick={() => (window.location = `detail/${prd.id}`)}
           />
           <div className="h-9 my-3">{prd.title.substring(0, 25)}...</div>
-          <div>{prd.price}$</div>
+          <div>{prd.price} TL</div>
           <Button justify="bottom">Sepete Ekle</Button>
         </div>
       </Col>

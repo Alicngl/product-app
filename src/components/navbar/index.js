@@ -1,11 +1,19 @@
 import { Button } from "antd";
-import React from "react";
-import Search from "../search";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BsBasketFill } from "react-icons/bs";
+import { searchAction } from "../../redux/actions/search";
 function Navbar(props) {
   const dispatch = useDispatch();
   const { cardItems } = useSelector((state) => state.card);
+  const [search, setSearch] = useState("");
+  console.log(search, "sss");
+
+  const searchPost = (e) => {
+    if (e.key === "Enter") {
+      dispatch(searchAction(search));
+    }
+  };
   return (
     <div className=" border-solid border-2 ">
       <div className="w-3/4 flex justify-between m-auto p-5 items-center">
@@ -14,7 +22,13 @@ function Navbar(props) {
         </div>
         <div className="flex content-center items-center ">
           <div>
-            <Search />
+            <input
+              value={search}
+              onKeyPress={searchPost}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="Search..."
+              className="border p-3 outline-none rounded-lg"
+            />
           </div>
           <div
             className="relative ml-5"

@@ -46,7 +46,7 @@ const Detail = () => {
           <div className="opacity-50">
             Rate:{product?.rating?.rate} - Stock:{product?.rating?.count}
           </div>
-          <div className="font-bold text-xl">{product?.price}</div>
+          <div className="font-bold text-xl">{product?.price} TL</div>
           <div className="flex items-center space-x-4">
             <CgMathMinus
               onClick={decrement}

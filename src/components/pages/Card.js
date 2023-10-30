@@ -31,7 +31,9 @@ function Card() {
               {(x?.description).substring(0, 90)}
             </div>
           </div>
-          <div className="font-bold text-lg">{x?.price} TL</div>
+          <div className="font-bold text-lg">
+            {cardItems.length > 0 ? x?.price * x.qty : x?.price} TL
+          </div>
           <div
             onClick={() => deleteCard(x.id)}
             className="bg-red-500 w-2- p-2 text-center text-white rounded-lg cursor-pointer">
