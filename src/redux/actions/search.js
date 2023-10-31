@@ -7,9 +7,9 @@ export const searchAction = (keyword) => async (dispatch) => {
     type: "SEARCH",
     payload: data.filter(
       (dt) =>
-        dt.title.includes(keyword) ||
-        dt.description.includes(keyword) ||
-        dt.category.includes(keyword)
+        dt.title.toLowerCase().includes(keyword) ||
+        dt.description.toLowerCase().includes(keyword) ||
+        dt.category.toLowerCase().includes(keyword)
     ),
   });
 };

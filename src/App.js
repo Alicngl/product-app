@@ -7,9 +7,12 @@ import { useSelector } from "react-redux";
 import Basket from "./components/pages/Card";
 import { useEffect } from "react";
 import Detail from "./pages/Detail";
+import Favorite from "./components/pages/Favorite";
 
 function App() {
   const drawer = useSelector((state) => state.drawer);
+  const favorite = useSelector((state) => state.favorite);
+
   useEffect(() => {
     console.log(drawer);
   });
@@ -25,6 +28,8 @@ function App() {
             <Route path="/detail/:id" element={<Detail />} />
           </Routes>
           {drawer === true && <Basket />}
+          {favorite === true && <Favorite />}
+
         </BrowserRouter>
       </PageContainer>
     </div>

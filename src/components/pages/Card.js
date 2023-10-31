@@ -18,7 +18,11 @@ function Card() {
           className="cursor-pointer"
         />
       </div>
-      {cardItems?.map((x, index) => (
+      {
+        cardItems.length===0 ?<div className={"justify-center items-center h-full align-middle"}>
+              <div className={"align-middle justify-center text-gray-500"}>Sepetinizde ürün bulunmuyor</div>
+            </div>:
+        cardItems?.map((x, index) => (
         <div
           key={index}
           className="h-28 flex items-center justify-between border-b py-4 mt-5">
