@@ -9,7 +9,7 @@ function Card() {
     dispatch(removaCard(id));
   };
   return (
-    <div className="w-1/3 h-full border fixed top-0 right-0 z-50 bg-white p-3">
+    <div className=" w-full md:w-1/3 h-full border fixed top-0 right-0 z-50 bg-white p-3">
       <div className="flex items-center h-20 justify-between">
         <h1>SEPETİM:</h1>
         <AiOutlineClose
@@ -25,15 +25,13 @@ function Card() {
         cardItems?.map((x, index) => (
         <div
           key={index}
-          className="h-28 flex items-center justify-between border-b py-4 mt-5">
+          className="h-28 flex items-center justify-between border-b py-4 mt-5 space-x-2">
           <img src={x?.image} alt="" className="h-24" />
           <div className="w-44">
             <div className="font-bold text-sm">
               {x?.title} ({x?.qty})
             </div>
-            <div className="opacity-70 text-xs">
-              {(x?.description).substring(0, 90)}
-            </div>
+
           </div>
           <div className="font-bold text-lg">
             {cardItems.length > 0 ? x?.price * x.qty : x?.price} TL

@@ -10,7 +10,7 @@ function CardPage({ prd }) {
   const dispatch = useDispatch();
   const { favItems } = useSelector((state) => state.favItem);
 
-  // Bu etkileşim sadece bileşen yüklendiğinde çalışacak
+
   useEffect(() => {
     const isFavorited = favItems.find((x) => x.id === prd.id);
     setIsFav(!!isFavorited);

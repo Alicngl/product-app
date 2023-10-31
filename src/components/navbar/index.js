@@ -33,7 +33,7 @@ function Navbar(props) {
             />
           </div>
           <div
-            className="relative ml-5"
+            className="relative ml-2 md:ml-5"
             onClick={() => dispatch({ type: "DRAWER", payload: true })}>
             <LuShoppingCart size={25} className="cursor-pointer" />
             <span className="absolute -top-2 -right-3 px-2 bg-red-600 text-white rounded-full text-sm">
