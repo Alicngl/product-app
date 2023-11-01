@@ -1,5 +1,5 @@
 export const searchAction = (keyword) => async (dispatch) => {
-  console.log(keyword, "key");
+
   const data = await fetch("https://fakestoreapi.com/products").then((res) =>
     res.json()
   );
@@ -7,9 +7,9 @@ export const searchAction = (keyword) => async (dispatch) => {
     type: "SEARCH",
     payload: data.filter(
       (dt) =>
-        dt.title.toLowerCase().includes(keyword) ||
-        dt.description.toLowerCase().includes(keyword) ||
-        dt.category.toLowerCase().includes(keyword)
+        dt.title.toLowerCase().includes(keyword.toLowerCase()) ||
+        dt.description.toLowerCase().includes(keyword.toLowerCase()) ||
+        dt.category.toLowerCase().includes(keyword.toLowerCase())
     ),
   });
 };

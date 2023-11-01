@@ -8,6 +8,8 @@ import { productsCard } from "../redux/actions/card";
 import Spinner from "../components/spinner";
 import {productsFav, removeFav} from "../redux/actions/favorite";
 import {MdFavorite, MdFavoriteBorder} from "react-icons/md";
+import Comment from "../components/pages/Comment";
+import CommentList from "../components/pages/CommentList";
 
 const Detail = () => {
   const { id } = useParams();
@@ -24,7 +26,6 @@ const Detail = () => {
 
     const isFavorited = favItems.find((x) => x.id === +id);
     setIsFav(!!isFavorited);
-    console.log(favItems,"asdasd")
   }, [favItems,id]);
 
   const addFavorite = () => {
@@ -33,7 +34,6 @@ const Detail = () => {
 
   const increment = (stock) => {
     if (count <= stock) {
-      console.log("plus");
       setCount(count + 1);
     }
   };
@@ -51,23 +51,16 @@ const Detail = () => {
   const deleteCard = () => {
     dispatch(removeFav(+id));
   };
-  console.log(typeof id ,"id")
 
   return (
       <div className={"w-full "}>
-        <div className={"justify-end flex w-full m-auto p-5 md:w-2/3"}>
-          {isFav ?
-              <MdFavorite size={25} className={"cursor-pointer"} onClick={deleteCard} />
-              :
-              <MdFavoriteBorder size={25} className={"cursor-pointer"} onClick={addFavorite} />
-          }
-        </div>
+
         <div className="w-full flex items-center justify-center md:space-x-5 md:px-5 pb-5 ">
 
 
 
           {
-            product ? <div className="md:flex items-center  md:w-2/3 md:space-x-10 md:pt-20 justify-center">
+            product ? <div className="md:flex items-center  md:w-2/3 md:space-x-10 pt-5 md:pt-20 justify-center">
               <img src={product?.image} className="w-1/3  md:w-1/3 jus m-auto mb-5 " alt="" />
               <hr className={" mb-5 border-solid border-1"}/>
               <div className="md:w-2/3 space-y-5 px-5">
@@ -92,17 +85,33 @@ const Detail = () => {
                   />
                 </div>
 
-                <button
-                    disabled={count===0 ? true:false}
-                    onClick={addCard}
-                    className={`p-3 w-full ${count===0 ?"bg-gray-400":"bg-indigo-600"} text-center rounded-lg text-white text-lg`}>
-                  Sepete Ekle
-                </button>
+               <div className={"flex items-center align-middle"}>
+                 <button
+                     disabled={count===0 ? true:false}
+                     onClick={addCard}
+                     className={`p-3 w-full ${count===0 ?"bg-gray-400":"bg-indigo-600"} text-center rounded-lg text-white text-lg`}>
+                   Sepete Ekle
+                 </button>
+                 <div className={"justify-end flex w-full m-auto p-4 md:w-2/3"}>
+                   {isFav ?
+                       <MdFavorite size={35} className={"cursor-pointer"} onClick={deleteCard} />
+                       :
+                       <MdFavoriteBorder size={35} className={"cursor-pointer"} onClick={addFavorite} />
+                   }
+                 </div>
+               </div>
               </div>
             </div>: <Spinner/>
           }
 
         </div>
+
+         <div className={"bg-gray-200 space-y-5 py-5"}>
+           <CommentList id={id}/>
+           <Comment id={id}/>
+         </div>
+
+
       </div>
 
   );
