@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 
 export default function CommentList({ id }) {
-    const dispatch = useDispatch();
     const { commentItems } = useSelector((state) => state.commentItem);
     const filteredItems = commentItems.filter((x) => x.id === id);
     return (

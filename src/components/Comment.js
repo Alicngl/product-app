@@ -36,7 +36,7 @@ export default function Comment({ id }) {
                         />
                     </div>
                     <div>
-                        <button onClick={handleClick} className={"border p-3 rounded-lg"}>Yorum Yap</button>
+                        <button disabled={name ==""?true: comment== "" ? true:false} onClick={handleClick} className={"border p-3 rounded-lg"}>Yorum Yap</button>
                     </div>
                 </div>
             </div>

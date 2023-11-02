@@ -9,10 +9,8 @@ function Navbar(props) {
   const { cardItems } = useSelector((state) => state.card);
   const { favItems } = useSelector((state) => state.favItem);
 
-  const [search, setSearch] = useState("");
 
   const searchPost = (e) => {
-    setSearch(e.target.value);
     dispatch(searchAction(e.target.value));
   };
 
@@ -25,7 +23,6 @@ function Navbar(props) {
           <div className="flex content-center items-center ">
             <div>
               <input
-                  value={search}
                   onChange={(e) => searchPost(e)}
                   placeholder="Search..."
                   className="border p-3 outline-none rounded-lg"
