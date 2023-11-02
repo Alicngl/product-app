@@ -13,11 +13,6 @@ function App() {
   const drawer = useSelector((state) => state.drawer);
   const favorite = useSelector((state) => state.favorite);
 
-  useEffect(() => {
-    console.log(drawer);
-  });
-
-  console.log(drawer, "drawer");
   return (
     <div className="App">
       <PageContainer>
@@ -29,7 +24,6 @@ function App() {
           </Routes>
           {drawer === true && <Basket />}
           {favorite === true && <Favorite />}
-
         </BrowserRouter>
       </PageContainer>
     </div>

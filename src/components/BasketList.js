@@ -9,13 +9,11 @@ function BasketList() {
   const { cardItems } = useSelector((state) => state.card);
   const location = useLocation();
   const pathname = location.pathname;
-  console.log(pathname,"path")
 
   //todo: Function to delete a product from the cart
   const deleteCard = (id) => {
     dispatch(removeCard(id));
   };
-  console.log(pathname=="/detail/:id"?"1":"2")
   const handleClick=(id)=>{
     if (pathname==`/`){
       window.location=`detail/${id}`
@@ -49,7 +47,7 @@ function BasketList() {
 
           </div>
           <div className="font-bold text-lg">
-            {cardItems.length > 0 ? x?.price * x.qty : x?.price} TL
+            {cardItems.length > 0 ? (x?.price * x.qty).toFixed(2) : (x?.price).toFixed(2)} TL
           </div>
           <div
             onClick={() => deleteCard(x.id)}

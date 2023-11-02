@@ -13,7 +13,6 @@ const Home = () => {
     dispatch(productsAction());
     dispatch(searchAction(""));
   }, [dispatch]);
-
   return (
     <div className="flex justify-center">
       <div className="w-4/5 ">
@@ -23,12 +22,10 @@ const Home = () => {
           justify="center"
           align="bottom"
           height="full">
-          {
-            search.length>0 ?
-                search.map((item, index) => <Product prd={item} key={index} />):
-                products &&
-                products.map((item, index) => <Product prd={item} key={index} />)
-          }
+          {search.length > 0
+            ? search.map((item, index) => <Product prd={item} key={index} />)
+            : products &&
+              products.map((item, index) => <Product prd={item} key={index} />)}
         </Row>
       </div>
     </div>

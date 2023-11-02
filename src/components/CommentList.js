@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
+import {  useSelector } from "react-redux";
 
 export default function CommentList({ id }) {
     const { commentItems } = useSelector((state) => state.commentItem);

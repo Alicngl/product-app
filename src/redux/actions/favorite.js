@@ -1,5 +1,4 @@
 export const productsFav = (id) => async (dispatch, getState) => {
-    console.log(id,"ididid")
     const data = await fetch(`https://fakestoreapi.com/products/${id}`).then(
         (res) => res.json()
     );

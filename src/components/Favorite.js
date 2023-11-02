@@ -1,7 +1,6 @@
 import React from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
-import { removaCard } from "../redux/actions/card";
 import {removeFav} from "../redux/actions/favorite";
 function Favorite() {
     const dispatch = useDispatch();
