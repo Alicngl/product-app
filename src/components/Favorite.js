@@ -1,15 +1,16 @@
 import React from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
-import { removaCard } from "../../redux/actions/card";
-import {removeFav} from "../../redux/actions/favorite";
+import { removaCard } from "../redux/actions/card";
+import {removeFav} from "../redux/actions/favorite";
 function Favorite() {
     const dispatch = useDispatch();
     const { favItems } = useSelector((state) => state.favItem);
+    //todo: Function to delete a card from favorites
+
     const deleteCard = (id) => {
         dispatch(removeFav(id));
     };
-    console.log(favItems,"ffff")
     return (
         <div className="w-full md:w-1/3 h-full border fixed top-0 right-0 z-50 bg-white p-3">
             <div className="flex items-center h-20 justify-between">

@@ -1,12 +1,14 @@
 import React from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
-import { removaCard } from "../../redux/actions/card";
-function Card() {
+import { removeCard } from "../redux/actions/card";
+function BasketList() {
   const dispatch = useDispatch();
   const { cardItems } = useSelector((state) => state.card);
+
+  //todo: Function to delete a product from the cart
   const deleteCard = (id) => {
-    dispatch(removaCard(id));
+    dispatch(removeCard(id));
   };
   return (
     <div className=" w-full md:w-1/3 h-full border fixed top-0 right-0 z-50 bg-white p-3">
@@ -38,7 +40,7 @@ function Card() {
           </div>
           <div
             onClick={() => deleteCard(x.id)}
-            className="bg-red-500 w-2- p-2 text-center text-white rounded-lg cursor-pointer">
+            className="bg-red-500 w-3- p-2 text-center text-white rounded-lg cursor-pointer">
             Sil
           </div>
         </div>
@@ -47,4 +49,4 @@ function Card() {
   );
 }
 
-export default Card;
+export default BasketList;

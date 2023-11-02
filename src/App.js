@@ -4,10 +4,10 @@ import PageContainer from "./components/containers/PageContainer";
 import Navbar from "./components/navbar";
 import Home from "./pages/Home";
 import { useSelector } from "react-redux";
-import Basket from "./components/pages/Card";
+import Basket from "./components/BasketList";
 import { useEffect } from "react";
 import Detail from "./pages/Detail";
-import Favorite from "./components/pages/Favorite";
+import Favorite from "./components/Favorite";
 
 function App() {
   const drawer = useSelector((state) => state.drawer);

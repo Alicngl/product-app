@@ -1,28 +1,33 @@
 import { Button, Col, Image } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
-import {productsFav, removeFav} from "../../redux/actions/favorite";
+import {productsFav, removeFav} from "../redux/actions/favorite";
 import { useState, useEffect } from "react";
-import Spinner from "../spinner";
+import Spinner from "./spinner";
 
-function CardPage({ prd }) {
-  const [isFav, setIsFav] = useState(false); // İlk başta favori olmadığınızı varsayalım
+function Product({ prd }) {
+  const [isFav, setIsFav] = useState(false);
   const dispatch = useDispatch();
   const { favItems } = useSelector((state) => state.favItem);
 
+  //todo: Check if the product is favorited
 
   useEffect(() => {
     const isFavorited = favItems.find((x) => x.id === prd.id);
     setIsFav(!!isFavorited);
   }, [favItems, prd.id]);
 
+  //todo: Function to navigate to the product detail page
   const addCard = () => {
     window.location = `detail/${prd.id}`;
   };
 
+  //todo: Function to add the product to favorites
   const addFavorite = () => {
     dispatch(productsFav(prd.id));
   };
+
+  //todo: Function to remove the product from favorites
   const deleteCard = () => {
     dispatch(removeFav(prd.id));
   };
@@ -57,4 +62,4 @@ function CardPage({ prd }) {
   );
 }
 
-export default CardPage;
+export default Product;

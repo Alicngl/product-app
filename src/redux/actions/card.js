@@ -19,7 +19,7 @@ export const productsCard = (id, quantity) => async (dispatch, getState) => {
   localStorage.setItem("cardItems", JSON.stringify(cardItems));
 };
 
-export const removaCard = (productId) => (dispatch, getState) => {
+export const removeCard = (productId) => (dispatch, getState) => {
   dispatch({ type: "REMOVE_CARD", payload: productId });
 
   const {

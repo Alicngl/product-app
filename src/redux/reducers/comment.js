@@ -7,10 +7,7 @@ export const commentReducer = (state = { commentItems: [] }, action) => {
                     commentItems: [...state.commentItems, item],
                 };
 
-        case "REMOVE_CARD":
-            return {
-                commentItems: state.commentItems.filter((x) => x.id !== action.payload),
-            };
+
         default:
             return state;
     }

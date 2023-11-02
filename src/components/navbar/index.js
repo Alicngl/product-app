@@ -12,8 +12,8 @@ function Navbar(props) {
   const [search, setSearch] = useState("");
 
   const searchPost = (e) => {
-    setSearch(e.target.value); // State'i önce güncelle
-    dispatch(searchAction(search)); // Ardından searchAction'ı çağır
+    setSearch(e.target.value);
+    dispatch(searchAction(e.target.value));
   };
 
   return (

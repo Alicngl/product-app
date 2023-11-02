@@ -1,4 +1,4 @@
-import CardPage from "../components/pages/CardPage";
+import Product from "../components/Product";
 import { useSelector, useDispatch } from "react-redux";
 import { productsAction } from "../redux/actions/products";
 import { useEffect } from "react";
@@ -13,7 +13,6 @@ const Home = () => {
     dispatch(productsAction());
     dispatch(searchAction(""));
   }, [dispatch]);
-  console.log(search, "products");
 
   return (
     <div className="flex justify-center">
@@ -26,9 +25,9 @@ const Home = () => {
           height="full">
           {
             search.length>0 ?
-                search.map((item, index) => <CardPage prd={item} key={index} />):
+                search.map((item, index) => <Product prd={item} key={index} />):
                 products &&
-                products.map((item, index) => <CardPage prd={item} key={index} />)
+                products.map((item, index) => <Product prd={item} key={index} />)
           }
         </Row>
       </div>

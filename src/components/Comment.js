@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { productsComment } from "../../redux/actions/comment";
+import { productsComment } from "../redux/actions/comment";
 
 export default function Comment({ id }) {
     const dispatch = useDispatch();
     const [name, setName] = useState("");
     const [comment, setComment] = useState("");
 
+    // todo: Function used to trigger the action
     const handleClick = () => {
         dispatch(productsComment(id, name, comment));
         setName("");
